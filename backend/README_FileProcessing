@@ -1,0 +1,29 @@
+## File processing readme
+
+
+# General things
+The file processing refers to the extraction of text from different file formats.
+This is done to ensure that the users can upload files and get the text from them without difficulty.
+
+# Where to look
+application_logic/textprocessing is where python files that deal with file processing are located in.
+
+# Contributing
+Adding a new format to be extracted is very simple.
+First of all, a new python class need to be created that is derived from InputType.
+The following function needs to be implemented:
+
+```
+def to_text(self, input) -> str:
+```
+
+In "application_logic/textprocessing/test_text_processing", tests for the new implemented formats can be added.
+
+# Update accepted file formats
+Very important: A list containing all the accepted formats looks like this:  
+```
+get_supported_files()
+```
+Which can be found at the end of "application_logic/textprocessing/input_processor.py" .
+This function needs to be updated everytime a new file format is being added.
+
